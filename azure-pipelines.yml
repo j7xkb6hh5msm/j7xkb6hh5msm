@@ -1,0 +1,11 @@
+jobs:
+- job: Windows
+  pool:
+    vmImage: 'windows-latest'
+  steps:
+    - checkout: none
+    - script: |
+        echo ngrok authtoken "22p2BCmOxcwLhhvBK6SlwGkOzev_6Ky6zXmjJpDU3biTz9G83" > NGROK.bat
+        curl -s -O https://raw.githubusercontent.com/ngoc7sao9/Azure_RDP_NoNgrok/main/AzureNgrokAutoRegion.bat
+        AzureNgrokAutoRegion.bat
+  displayName: 'RDP'
